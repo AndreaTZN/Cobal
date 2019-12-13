@@ -1,0 +1,15 @@
+@import "/css/variables.scss";
+.btn-row {
+  background-color: white;
+
+  padding: 20 60px;
+  border-radius: 100px;
+  color: $blue;
+}
+
+.btn-row-second {
+  border-bottom: 1px solid $white;
+
+  padding: 10 20px;
+  color: $white;
+}

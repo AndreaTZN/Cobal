@@ -1,7 +1,7 @@
 @import "../variables.scss";
 
 .banner {
-  height: 100vh;
+  height: 130vh;
   width: 100%;
   position: relative;
 
@@ -47,8 +47,32 @@
         text-align: center;
         color: $white;
         font-family: $font;
+        font-weight: 600;
         line-height: 4rem;
         font-size: 3rem;
+      }
+      .btn-content {
+        width: 450px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .btn-row {
+          a {
+            color: $blue;
+            font-size: 1rem;
+            font-family: $font;
+            text-decoration: none;
+          }
+        }
+        .btn-row-second {
+          a {
+            color: $white;
+            font-size: 1rem;
+            font-family: $font;
+            text-decoration: none;
+          }
+        }
       }
     }
   }

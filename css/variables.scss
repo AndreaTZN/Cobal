@@ -11,6 +11,7 @@ $grey: #c6c5c4;
 $greyDark: #5f5c55;
 $orange: #daa932;
 $white: #ffffff;
+$blueTitle: #324865;
 
 $font: "Poppins", sans-serif;
 body {
@@ -20,29 +21,10 @@ body {
 
 // Container
 .container {
-  width: 1345px;
-  min-width: 1345px;
+  width: 100%;
+  max-width: 1400px;
   margin: 0 auto;
-  @media (max-width: $widescreen) {
-    width: 1153px;
-    min-width: 1153px;
-  }
-  @media (max-width: $desktop) {
-    width: 961px;
-    min-width: 961px;
-  }
-  @media (max-width: $laptop) {
-    width: 767px;
-    min-width: 767px;
-  }
-  @media (max-width: $tablet) {
-    width: 481px;
-    min-width: 481px;
-  }
-  @media (max-width: $mobile) {
-    width: 320px;
-    min-width: 320px;
-  }
+
   .row {
     display: flex;
     align-items: center;

@@ -3,33 +3,114 @@
 
 .features {
   padding: 100px 0;
-  .features-title {
-    max-width: 800px;
-    margin: 0 auto;
-    @media (max-width: $laptop) {
-      width: 100%;
+
+  .features-inner {
+    width: 100%;
+
+
+    .features-title {
+      max-width: 800px;
+      margin: 0 auto;
+
+      h2 {
+        text-align: center;
+        font-family: $font;
+        font-size: 2.3rem;
+        color: $blueTitle;
+        font-weight: 700;
+      }
+
+      hr {
+        width: 66px;
+        height: 2px;
+        background-color: $blue;
+        border: none;
+      }
+
+      p {
+        margin: 30px 0 100px;
+        text-align: center;
+        font-family: $fontP;
+        font-size: 1rem;
+        line-height: 2rem;
+        color: $greyP;
+        font-weight: 300;
+      }
     }
-    h2 {
-      text-align: center;
-      font-family: $font;
-      font-size: 2.3rem;
-      color: $blueTitle;
-      font-weight: 700;
+
+    .reverse {
+      flex-direction: row-reverse;
+
     }
-    hr {
-      width: 66px;
-      height: 2px;
-      background-color: $blue;
-      border: none;
-    }
-    p {
-      margin: 30px 0 100px;
-      text-align: center;
-      font-family: $font;
-      font-size: 1rem;
-      line-height: 2rem;
-      color: $blueTitle;
-      font-weight: 300;
+
+    .features-content {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+
+
+      .features-line {
+        position: absolute;
+        top: 100px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 55%;
+        margin: 0 auto;
+        z-index: -10;
+      }
+
+      .features-content-inner {
+
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin-bottom: 150px;
+
+        .reverse {
+          flex-direction: row-reverse;
+        }
+
+        .image {
+          width: 40%;
+
+          img {
+            max-width: 100%;
+            display: flex;
+            justify-content: center;
+          }
+
+          svg {
+            max-width: 100%;
+            display: flex;
+            justify-content: center;
+          }
+        }
+
+        .features-items {
+          width: 40%;
+
+          h3 {
+            font-family: $font;
+            font-size: 2.25rem;
+            color: $blueFeatures;
+            font-weight: 500;
+          }
+
+          p {
+            font-family: $fontP;
+            font-size: 1rem;
+            line-height: 32px;
+            color: $greyP;
+          }
+
+          @media (max-width:$tablet) {
+            width: 100%;
+
+          }
+        }
+      }
     }
   }
 }

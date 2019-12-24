@@ -14,9 +14,11 @@ header {
 
     width: 100%;
     height: 100px;
+
     .logo {
       display: flex;
       align-items: center;
+
       span {
         margin-left: 10px;
         font-family: $font;
@@ -26,11 +28,13 @@ header {
       }
     }
   }
+
   .navigation {
     ul {
       display: flex;
       align-items: center;
     }
+
     li {
       list-style: none;
       padding: 0 25px;
@@ -38,6 +42,7 @@ header {
       font-size: 0.875rem;
       color: $white;
     }
+
     li:last-child {
       background-color: white;
       padding-top: 20px;
@@ -45,6 +50,7 @@ header {
       border-radius: 100px;
       color: $blue;
     }
+
     @media (max-width: $desktop) {
       display: none;
     }

@@ -4,11 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "parcel index.html"
   },
-  "author": "",
+  "author": "Andrea",
   "license": "ISC",
   "devDependencies": {
+    "cssnano": "^4.1.10",
+    "postcss-modules": "^1.4.1",
     "sass": "^1.23.7"
-  }
+  },
+  "dependencies": {}
 }

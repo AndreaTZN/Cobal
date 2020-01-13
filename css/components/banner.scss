@@ -1,5 +1,3 @@
-@import "../variables.scss";
-
 .banner {
   height: 100vh;
   width: 100%;
@@ -7,24 +5,30 @@
   z-index: 0;
 
   background: rgb(116, 100, 253);
-  background: -moz-linear-gradient(4deg,
-      rgba(116, 100, 253, 1) 0%,
-      rgba(88, 81, 224, 1) 30%,
-      rgba(88, 81, 224, 1) 100%);
-  background: -webkit-linear-gradient(4deg,
-      rgba(116, 100, 253, 1) 0%,
-      rgba(88, 81, 224, 1) 30%,
-      rgba(88, 81, 224, 1) 100%);
-  background: linear-gradient(4deg,
-      rgba(116, 100, 253, 1) 0%,
-      rgba(88, 81, 224, 1) 30%,
-      rgba(88, 81, 224, 1) 100%);
+  background: -moz-linear-gradient(
+    4deg,
+    rgba(116, 100, 253, 1) 0%,
+    rgba(88, 81, 224, 1) 30%,
+    rgba(88, 81, 224, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    4deg,
+    rgba(116, 100, 253, 1) 0%,
+    rgba(88, 81, 224, 1) 30%,
+    rgba(88, 81, 224, 1) 100%
+  );
+  background: linear-gradient(
+    4deg,
+    rgba(116, 100, 253, 1) 0%,
+    rgba(88, 81, 224, 1) 30%,
+    rgba(88, 81, 224, 1) 100%
+  );
 
   .background-image {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-image: url(/images/banner@2x.png);
+    background-image: url("/images/banner@2x.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -47,6 +51,10 @@
         font-weight: 600;
         line-height: 4rem;
         font-size: 3rem;
+
+        .line {
+          overflow: hidden;
+        }
       }
 
       .btn-content {

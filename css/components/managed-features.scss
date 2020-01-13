@@ -1,9 +1,6 @@
-@import "../variables.scss";
-
-
 .managed-features {
     background-color: #F5F9FC;
-    padding: 100px 0;
+    padding: 100px 0 136px;
     position: relative;
 
     .features-inner {
@@ -20,18 +17,41 @@
                 display: flex;
                 align-items: center;
                 flex-wrap: wrap;
-                margin-bottom: 250px;
+
+                @media (max-width: $desktop) {
+                    flex-direction: column-reverse;
+                }
 
                 .image {
                     width: 40%;
                     position: absolute;
-                    top: 10px;
+                    top: -50px;
                     right: 0;
+                    z-index: 10;
 
-                    img {
-                        max-width: 100%;
+                    .image-inner {
+                        position: relative;
+
+                        .img1 {
+                            max-width: 430px;
+                        }
+
+                        .img2 {
+                            position: absolute;
+                            left: 30px;
+                            top: 60px;
+                            max-width: 350px;
+
+                        }
+                    }
+
+
+                    @media (max-width: $desktop) {
+                        position: initial;
                         display: flex;
                         justify-content: center;
+
+                        width: 100%;
                     }
                 }
 
@@ -57,6 +77,8 @@
 
                     }
                 }
+
+
             }
         }
     }

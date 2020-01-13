@@ -1,5 +1,3 @@
-@import "../variables.scss";
-
 .btn-row {
   background-color: white;
 
@@ -50,8 +48,8 @@
 }
 
 .burger-menu {
-  width: 50px;
-  height: 45px;
+  width: 30px;
+  height: 23px;
 
   display: none;
   cursor: pointer;
@@ -62,52 +60,45 @@
   }
 }
 
-.burger-menu span:nth-child(1) {
-  width: 50px;
-  height: 5px;
+.burger-menu span {
+  width: 30px;
+  height: 3px;
 
   background-color: white;
-  border-radius: 10px;
-  position: relative;
+  border-radius: 100px;
+
   opacity: 1;
-  transition: 0.1s cubic-bezier(0.78, -0.41, 0.3, 1.37);
+
+}
+
+.burger-menu span:nth-child(1) {
+  position: absolute;
+  transition: 0.2s cubic-bezier(0.78, -0.41, 0.3, 1.37);
+  top: 0;
 }
 
 .burger-menu span:nth-child(2) {
   position: absolute;
-
-  top: -15px;
-  width: 50px;
-  height: 5px;
-
-  background-color: white;
-  border-radius: 10px;
-  transition: 0.2s cubic-bezier(0.78, -0.41, 0.3, 1.37);
+  top: 10px;
+  transition: 0.1s cubic-bezier(0.78, -0.41, 0.3, 1.37);
 }
 
 .burger-menu span:nth-child(3) {
   position: absolute;
-
-  top: 15px;
-  width: 50px;
-  height: 5px;
-
-  background-color: white;
-  border-radius: 10px;
+  top: 20px;
   transition: 0.2s cubic-bezier(0.78, -0.41, 0.3, 1.37);
 }
 
 .burger-menu.open span:nth-child(1) {
-  opacity: 0;
-  transform: translateX(30px);
+  transform: rotate(45deg);
+  top: 10px;
 }
 
 .burger-menu.open span:nth-child(2) {
-  transform: rotate(45deg);
-  top: 0px;
+  opacity: 0;
 }
 
 .burger-menu.open span:nth-child(3) {
-  top: 0px;
+  top: 10px;
   transform: rotate(-45deg);
 }

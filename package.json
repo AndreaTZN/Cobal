@@ -4,14 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "parcel index.html"
+    "start": "parcel index.html",
+    "build": "parcel build index.html -d prod --no-source-maps"
   },
   "author": "Andrea",
   "license": "ISC",
   "devDependencies": {
+    "parcel-bundler": "1.12.4",
+    "autoprefixer": "^9.7.3",
+    "css-mqpacker": "^7.0.0",
     "cssnano": "^4.1.10",
     "postcss-modules": "^1.4.1",
     "sass": "^1.23.7"
-  },
-  "dependencies": {}
+  }
 }

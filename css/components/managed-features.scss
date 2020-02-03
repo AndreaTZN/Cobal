@@ -8,7 +8,7 @@
 
         .features-content {
 
-            max-width: 1000px;
+            max-width: $maxwidth;
             margin: 0 auto;
 
 
@@ -48,10 +48,11 @@
 
                     @media (max-width: $desktop) {
                         position: initial;
-                        display: flex;
+                        display: none;
                         justify-content: center;
 
                         width: 100%;
+
                     }
                 }
 
@@ -72,10 +73,19 @@
                         color: $greyP;
                     }
 
-                    @media (max-width:$tablet) {
+                    @media (max-width:$desktop) {
                         width: 100%;
-
+                        text-align: center;
                     }
+
+                    .btn-row-features {
+
+                        @media (max-width:$desktop) {
+                            margin: 0 auto;
+                        }
+                    }
+
+
                 }
 
 

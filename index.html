@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body style=" visibility: hidden;">
   <header>
     <div class="container-fluid">
       <div class="row">
@@ -35,20 +35,21 @@
               </g>
 
             </svg>
-            <span>Cobal</span>
-
+            <div class="logo-span">
+              <span>Cobal</span>
+            </div>
           </div>
           <nav>
             <div class="navigation">
               <ul>
-                <li>Home</li>
-                <li>Features</li>
-                <li>Pricing</li>
-                <li>Testimonial</li>
-                <li>About</li>
-                <li>News</li>
-                <li>Contact us</li>
-                <li class="btn-row">Get Started</li>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">Testimonial</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="#">Contact us</a></li>
+                <li><a href="#">Get Started</a></li>
               </ul>
 
             </div>
@@ -61,6 +62,7 @@
         </div>
       </div>
     </div>
+    <div class="overlay"></div>
   </header>
 
   <section class="banner" id="banner">
@@ -70,7 +72,14 @@
         <div class="banner-inner">
           <div class="content">
             <div class="content-inner">
-              <h1>Brand New Way To See </br><span class="line"> The World</span></h1>
+              <h1>
+                <div class="line">
+                  <div class="span">A Brand New Way To See</div>
+                </div>
+                <div class="line">
+                  <div class="span">The World</div>
+                </div>
+              </h1>
               <div class="btn-content">
                 <div class="btn-row"><a href="/">Discover More</a></div>
                 <div class="btn-row-second">
@@ -86,6 +95,10 @@
   </section>
 
   <section class="features" id="features">
+    <div class="features-obj">
+      <img class="img1" src="/images/img-1.png" alt="">
+      <img class="img2" src="/images/img-1.png" alt="">
+    </div>
     <div class="container">
       <div class="row">
         <div class="features-inner">
@@ -99,13 +112,14 @@
           <div class="features-content">
 
             <div class="features-line">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1049.976 3339.968">
-                <path id="Tracé_459" data-name="Tracé 459" stroke="#5a52eb"
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1049 3339">
+                <path id="Tracé_459" data-name="Tracé 459" stroke="#5a52eb" class="path"
                   d="M3333.811,1555.779s539.76,306.922,321.033,814.932-769.069,21.167-892.544,490.37,299.866,984.268,793.764,1118.326,119.947,1061.881-458.619,889.017"
                   fill="none" transform="translate(-2737.974 -1552.37)" stroke-linecap="round" stroke-width="5"
                   stroke-dasharray="10 15" opacity="0.13" />
               </svg>
             </div>
+
 
             <div class="features-content-inner">
               <div class="image">
@@ -115,7 +129,8 @@
                 <h3>Augmented reality</h3>
                 <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
                   pariatur.
-                  Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+                  Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+                  est
                   laborum.</p>
                 <div class="btn-row-features"><a href="/">LEARN MORE</a></div>
               </div>
@@ -374,7 +389,8 @@
                 <h3>Education and Research</h3>
                 <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
                   pariatur.
-                  Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+                  Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+                  est
                   laborum.</p>
                 <div class="btn-row-features"><a href="/">LEARN MORE</a></div>
               </div>
@@ -517,7 +533,8 @@
                 <h3>Data Science & Innovation</h3>
                 <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
                   pariatur.
-                  Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+                  Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+                  est
                   laborum.</p>
                 <div class="btn-row-features"><a href="/">LEARN MORE</a></div>
               </div>
@@ -540,14 +557,17 @@
               <div class="features-items">
                 <h3>In app managed feature to see
                   and record visual experiences</h3>
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                  pariatur.
-                  Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                  laborum.</p>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
+                  totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta
+                  sunt explicabo.</p>
                 <div class="btn-row-features"><a href="/">LEARN MORE</a></div>
               </div>
               <div class="image">
-                <img src="/images/Iphone.png" alt="Design-phone">
+                <div class="image-inner">
+                  <img class="img1" src="/images/Iphone@2x.png" alt="Design-phone">
+                  <img class="img2" src="/images/screen-iphone@2x.png" alt="Design-phone">
+                </div>
+
               </div>
 
             </div>
@@ -556,6 +576,18 @@
       </div>
     </div>
   </section>
+
+  <section class="users-reviews" id="users-reviews">
+    <div class="background-image"></div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.1.1/gsap.min.js"></script>
+
+
+  <script src="./js/index.js"></script>
 </body>
 
 </html>

@@ -1,62 +1,51 @@
 export function pathSvg() {
-    const body = document.querySelector("body");
+  const body = document.querySelector("body");
 
+  const word = document.querySelector(".path");
+  const featuresLine = document.getElementsByClassName("features-line")[0];
 
-    const word = document.querySelector(".path");
-    const featuresLine = document.getElementsByClassName(
-        "features-line"
-    )[0];
+  let featuresContentInner = document.querySelectorAll(
+    ".features-content-inner"
+  );
 
-    let featuresContentInner = document.querySelectorAll(
-        ".features-content-inner"
-    );
+  let featureLineHeight = featuresLine.offsetHeight;
 
-    let featureLineHeight = featuresLine.offsetHeight;
-    console.log(featureLineHeight)
+  function featureHeight() {
+    return featureLineHeight;
+  }
 
-    function featureHeight() {
+  window.addEventListener("resize", function () {
+    featureLineHeight = featuresLine.offsetHeight;
+  });
 
-        return featureLineHeight
+  function pathPrepare(el) {
+    let lineLength = el.getTotalLength();
+    el.style.strokeDasharray = lineLength;
+    el.style.strokeDashoffset = lineLength;
+  }
+  // prepare SVG
+  pathPrepare(word);
 
-    }
-    window.addEventListener('resize', function () {
+  // init controller
+  let controller = new ScrollMagic.Controller();
 
-        featureLineHeight = featuresLine.offsetHeight
+  // build tween
+  const tween = new TimelineMax().add(
+    TweenMax.to(word, 2, {
+      strokeDashoffset: 0,
+      ease: Linear.easeNone
+    })
+  );
 
+  // draw word for 0.9
+  // build scene
+  let scene = new ScrollMagic.Scene({
+      triggerElement: featuresContentInner,
+      duration: featureHeight,
+      tweenChanges: true,
+      reverse: false
+    })
 
-    });
-
-
-
-    function pathPrepare(el) {
-        let lineLength = el.getTotalLength();
-        el.style.strokeDasharray = lineLength;
-        el.style.strokeDashoffset = lineLength;
-    }
-    // prepare SVG
-    pathPrepare(word);
-
-    // init controller
-    let controller = new ScrollMagic.Controller();
-
-    // build tween
-    const tween = new TimelineMax().add(
-        TweenMax.to(word, 2, {
-            strokeDashoffset: 0,
-            ease: Linear.easeNone
-        })
-    ); // draw word for 0.9
-
-    // build scene
-    let scene = new ScrollMagic.Scene({
-            triggerElement: featuresContentInner,
-            duration: featureHeight,
-            tweenChanges: true,
-            reverse: false,
-            offset: -200
-        })
-        .addIndicators()
-
-        .setTween(tween)
-        .addTo(controller);
+    .setTween(tween)
+    .addTo(controller);
 }

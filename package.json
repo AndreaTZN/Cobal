@@ -10,11 +10,14 @@
   "author": "Andrea",
   "license": "ISC",
   "devDependencies": {
-    "parcel-bundler": "1.12.4",
-    "autoprefixer": "^9.7.3",
-    "css-mqpacker": "^7.0.0",
+    "autoprefixer": "^9.8.0",
     "cssnano": "^4.1.10",
-    "postcss-modules": "^1.4.1",
-    "sass": "^1.23.7"
+    "parcel-bundler": "1.12.4",
+    "sass": "^1.26.8"
+  },
+  "dependencies": {
+    "browserslist": "^4.12.0",
+    "caniuse-lite": "^1.0.30001084",
+    "postcss-modules": "^2.0.0"
   }
 }

@@ -8,6 +8,7 @@ export function animation() {
   //Header
   const logo = document.querySelector(".logo");
   const navigation = document.querySelectorAll(".navigation ul li");
+  const navigationButton = document.querySelectorAll(".navigation ul .btn-nav");
 
   const h1Span = document.querySelectorAll(".span");
   const contentInner = document.querySelectorAll(".content-inner");
@@ -51,7 +52,7 @@ export function animation() {
     });
 
   if (body.offsetWidth > "1200") {
-    tlHeader.from(navigation, {
+    tlHeader.from([navigation, navigationButton], {
       delay: -0.5,
       duration: 1,
       opacity: 0,
@@ -107,16 +108,14 @@ export function animation() {
 
   tlHeaderBlur
     .to(
-      contentInner,
-      {
+      contentInner, {
         y: -100,
         duration: 1
       },
       "Start"
     )
     .to(
-      contentInnerH1,
-      {
+      contentInnerH1, {
         webkitFilter: "blur(3px)"
       },
       "Start"
@@ -124,10 +123,10 @@ export function animation() {
 
   // build scene
   new ScrollMagic.Scene({
-    triggerElement: "header",
-    triggerHook: 0,
-    duration: 800
-  })
+      triggerElement: "header",
+      triggerHook: 0,
+      duration: 800
+    })
     .setTween(tlHeaderBlur)
     .addTo(controller);
 
@@ -147,10 +146,10 @@ export function animation() {
   });
 
   new ScrollMagic.Scene({
-    triggerElement: "#features",
-    //duration: 100
-    reverse: false
-  })
+      triggerElement: "#features",
+      //duration: 100
+      reverse: false
+    })
     //.addIndicators()
     .setTween(tlFeaturesTitle)
     .addTo(controller);
@@ -161,13 +160,12 @@ export function animation() {
     ".features-content-inner"
   );
 
-  featuresContentInner.forEach(function(items) {
-    const tlFeaturesContent = gsap.timeline();
+  featuresContentInner.forEach(function (items) {
+    const fadeInUp = gsap.timeline();
 
-    tlFeaturesContent
+    fadeInUp
       .from(
-        items.querySelector(".image"),
-        {
+        items.querySelector(".image"), {
           y: 100,
           duration: 1,
           opacity: 0,
@@ -176,8 +174,7 @@ export function animation() {
         "start"
       )
       .from(
-        items.querySelector(".features-items h3"),
-        {
+        items.querySelector(".features-items h3"), {
           y: 100,
           duration: 1,
           opacity: 0,
@@ -186,8 +183,7 @@ export function animation() {
         "start"
       )
       .from(
-        items.querySelector(".features-items p"),
-        {
+        items.querySelector(".features-items p"), {
           y: 100,
           duration: 1,
           opacity: 0,
@@ -196,8 +192,7 @@ export function animation() {
         0.2
       )
       .from(
-        items.querySelector(".btn-row-features"),
-        {
+        items.querySelector(".btn-row-features"), {
           y: 100,
           duration: 1,
           opacity: 0,
@@ -207,11 +202,11 @@ export function animation() {
       );
 
     new ScrollMagic.Scene({
-      triggerElement: items,
-      reverse: false
-    })
-      .addIndicators()
-      .setTween(tlFeaturesContent)
+        triggerElement: items,
+        reverse: false
+      })
+
+      .setTween(fadeInUp)
       .addTo(controller);
   });
 

@@ -4,7 +4,7 @@ header {
   height: 100px;
   z-index: 10;
 
-
+  
   .header-inner {
     position: relative;
     display: flex;
@@ -49,6 +49,7 @@ header {
       cursor: pointer;
 
       a {
+        position: relative;
         display: block;
         color: $white;
         font-family: $font;
@@ -56,20 +57,33 @@ header {
         text-decoration: none;
         transition: all 0.3s ease-in-out;
 
-
+        &::after{
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: -10px;
+          width: 100%;
+          height: 3px;
+          background: white;
+          transform: scale(0,1);
+          transform-origin: 0% 100%;
+          transition: transform 0.35s;
+        }
+        &:hover::after {
+          transform: scale(1,1);
+        }
       }
-
-      &:hover a {
-        transform: translateY(-5px);
-      }
+  
+      
     }
 
 
-    li:last-child {
+    .btn-nav{
       background-color: white;
       padding-top: 20px;
       padding-bottom: 20px;
       border-radius: 100px;
+       padding: 25 25px;
 
       a {
         color: $blue;

@@ -1,5 +1,6 @@
 @import "../css/normalize.scss";
 @import "../css/variables.scss";
+@import "../css/breakpoints.scss";
 @import "../css/components/header.scss";
 @import "../css/components/banner.scss";
 @import "../css/components/button.scss";
@@ -7,3 +8,61 @@
 @import "../css/components/managed-features.scss";
 @import "../css/components/users.scss";
 @import "../css/components/overlay.scss";
+body,
+html {
+  visibility: hidden;
+  user-select: none;
+  //background: $white;
+  //overscroll-behavior: none;
+  box-sizing: border-box;
+  margin: 0;
+  font-family: "Josefin Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  width: 1560px;
+  min-width: 1560px;
+  margin: 0 auto;
+
+  @include media("<=1560px") {
+    width: 1280px;
+    min-width: 1280px;
+  }
+  @include media("<=desktop") {
+    width: 1080px;
+    min-width: 1080px;
+  }
+  @include media("<=1080px") {
+    width: 100%;
+    min-width: 100%;
+  }
+  .row {
+    display: flex;
+
+    padding: 0 32px;
+    @include media("<=phone") {
+      padding: 0 16px;
+    }
+  }
+  .v-center {
+    align-items: center;
+  }
+  .space-between {
+    justify-content: space-between;
+  }
+}
+
+.container-fluid {
+  width: 100%;
+  height: 100%;
+
+  .row {
+    display: flex;
+    height: 100%;
+    padding: 0 16px;
+  }
+}

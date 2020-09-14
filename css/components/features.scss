@@ -91,7 +91,11 @@
         flex-wrap: wrap;
         margin-bottom: 250px;
 
-
+        @include media("<=tablet"){
+          &:last-child{
+            margin-bottom: 0;
+          }
+        }
         .reverse {
           flex-direction: row-reverse;
         }
@@ -139,6 +143,7 @@
 
           }
         }
+     
       }
     }
   }

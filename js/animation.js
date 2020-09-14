@@ -44,12 +44,11 @@ export function animation() {
     })
 
     .from(logo, {
-      delay: -0.5,
       duration: 1,
       opacity: 0,
       y: 30,
-      ease: "power3.inOut"
-    });
+      ease: "expo.inOut",
+    }, "-=0.5");
 
   if (body.offsetWidth > "1200") {
     tlHeader.from([navigation, navigationButton], {
@@ -64,15 +63,14 @@ export function animation() {
     });
   } else {
     tlHeader.from(burger, {
-      delay: -0.5,
       duration: 1,
       opacity: 0,
       y: 30,
       ease: "power3.inOut"
-    });
+    },"-=0.5");
   }
 
-  if (h1Span[0].offsetWidth > "560") {
+  if (h1Span[0].offsetWidth > "680") {
     tlHeader.from(h1Span, {
       delay: -1,
       duration: 1,
@@ -95,12 +93,11 @@ export function animation() {
   }
 
   tlHeader.from(button, {
-    delay: -0.5,
     duration: 0.6,
     y: 60,
     opacity: 0,
     ease: "power3.inOut"
-  });
+  }, "-=0.5");
 
   //Blur on scroll Header
 

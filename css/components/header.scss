@@ -3,7 +3,6 @@ header {
   width: 100%;
   height: 100px;
   z-index: 10;
-
   
   .header-inner {
     position: relative;
@@ -19,7 +18,7 @@ header {
     .logo {
       display: flex;
       align-items: center;
-
+      z-index: 10;
       .logo-span {
         margin-left: 10px;
 
@@ -29,6 +28,7 @@ header {
           color: white;
           font-size: 1.8rem;
           font-weight: 700;
+          z-index: 10;
         }
       }
 
@@ -80,10 +80,9 @@ header {
 
     .btn-nav{
       background-color: white;
-      padding-top: 20px;
-      padding-bottom: 20px;
+
       border-radius: 100px;
-       padding: 25 25px;
+       padding: 20px 30px;
 
       a {
         color: $blue;
@@ -91,8 +90,12 @@ header {
       }
     }
 
-    @media (max-width: $desktop) {
+    
+    @include media("<=1200px"){
       display: none;
     }
+    // @media (max-width: $desktop) {
+    //   display: none;
+    // }
   }
 }

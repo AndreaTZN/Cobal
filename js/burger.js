@@ -4,7 +4,7 @@ export function activeBurger() {
   const body = document.getElementsByTagName("body")[0];
 
   const test = document.querySelectorAll(".overlay-inner ul li");
-  const button = document.getElementsByClassName("btn-nav");
+  const button = document.getElementsByClassName("btn-overlay");
 
   console.log(test);
   //Timeline Header

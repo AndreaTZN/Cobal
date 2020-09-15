@@ -25,7 +25,6 @@ export function activeBurger() {
 
     if (overlay.classList.contains("is-visible")) {
       body.style.overflowY = "scroll";
-      window.addEventListener('scroll', function() {body.style.overflowY = "scroll"; });
     } else {
       body.style.overflowY = "hidden";
     }
@@ -45,10 +44,12 @@ export function activeBurger() {
   });
 
   window.addEventListener("resize", () => {
+    
     if (window.innerWidth > 1200) {
       setTimeout(function () {
         overlay.classList.remove("is-visible");
         burger.classList.remove("open");
+        body.style.overflowY = "scroll";
       }, 900);
       overlayTl.reverse();
     }

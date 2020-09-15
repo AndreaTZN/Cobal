@@ -1,6 +1,7 @@
 import { activeBurger } from "./burger";
 import { pathSvg } from "./svg";
 import { animation } from "./animation";
+import {swiper} from "./swiper";
 window.addEventListener(
   "DOMContentLoaded",
   function (e) {
@@ -8,6 +9,7 @@ window.addEventListener(
     activeBurger();
     pathSvg();
     animation();
+    swiper();
   },
   false
 );

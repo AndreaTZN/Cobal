@@ -28,22 +28,29 @@
   align-items: center;
 
   .content-reviews {
-    width: 600px;
-    height: 250px;
+    padding: 50px 0px;
+    width: 100%;
     background-color: white;
-    padding: 100px 150px 200px 150px;
     border-radius: 15px;
+    overflow: visible;
 
     .swipper-container {
       height: 100%;
       width: 100%;
-      
+
     
     }
   }
 
   .user-text {
+          width: 600px;
           text-align: center;
+          margin: 0 auto;
+          box-sizing: border-box;
+          @include media("<=tablet"){
+            width: 100%;
+            padding: 0 12px;
+          }
         p {
           font-family: "Poppins", sans-serif;
           font-size: 1.1rem;
@@ -83,13 +90,13 @@
               align-items: center;
               margin-top: 100px;
         .swiper-pagination-bullet{
-                width: 5px;
-                height: 5px;
+                transform: scale(0.70);
                 border-radius: 100px;
                 background-color: rgba(15, 15, 43, 0.50);   
                 opacity: 1;   
         }
         .swiper-pagination-bullet-active{
+                 transform: scale(1);
                 width: 10px;
                 height: 10px;
                 background-color: rgba(15, 15, 43, 1);   

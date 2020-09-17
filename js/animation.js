@@ -23,14 +23,16 @@ export function animation() {
   const titleFeaturesHr = document.querySelectorAll(".features-title hr");
   const titleFeaturesP = document.querySelectorAll(".features-title p");
 
+
+  console.log(navigation)
   // init controller
   var controller = new ScrollMagic.Controller();
 
   //Remove init flash
   gsap.to(body, 0, {
     css: {
-      visibility: "visible"
-    }
+      visibility: "visible",
+    },
   });
 
   //Timeline Header
@@ -40,15 +42,19 @@ export function animation() {
     .from(backgroundImage, {
       duration: 1,
       opacity: 0,
-      ease: "power3.inOut"
+      ease: "power3.inOut",
     })
 
-    .from(logo, {
-      duration: 1,
-      opacity: 0,
-      y: 30,
-      ease: "expo.inOut",
-    }, "-=0.5");
+    .from(
+      logo,
+      {
+        duration: 1,
+        opacity: 0,
+        y: 30,
+        ease: "expo.inOut",
+      },
+      "-=0.5"
+    );
 
   if (body.offsetWidth > "1200") {
     tlHeader.from([navigation, navigationButton], {
@@ -58,16 +64,20 @@ export function animation() {
       y: 30,
       ease: "power3.inOut",
       stagger: {
-        amount: 0.2
-      }
+        amount: 0.2,
+      },
     });
   } else {
-    tlHeader.from(burger, {
-      duration: 1,
-      opacity: 0,
-      y: 30,
-      ease: "power3.inOut"
-    },"-=0.5");
+    tlHeader.from(
+      burger,
+      {
+        duration: 1,
+        opacity: 0,
+        y: 30,
+        ease: "power3.inOut",
+      },
+      "-=0.5"
+    );
   }
 
   if (h1Span[0].offsetWidth > "680") {
@@ -77,8 +87,8 @@ export function animation() {
       y: 60,
       ease: "power3.inOut",
       stagger: {
-        amount: 0.2
-      }
+        amount: 0.2,
+      },
     });
   } else {
     tlHeader.from(h1Span, {
@@ -87,17 +97,21 @@ export function animation() {
       y: 120,
       ease: "power3.inOut",
       stagger: {
-        amount: 0.2
-      }
+        amount: 0.2,
+      },
     });
   }
 
-  tlHeader.from(button, {
-    duration: 0.6,
-    y: 60,
-    opacity: 0,
-    ease: "power3.inOut"
-  }, "-=0.5");
+  tlHeader.from(
+    button,
+    {
+      duration: 0.6,
+      y: 60,
+      opacity: 0,
+      ease: "power3.inOut",
+    },
+    "-=0.5"
+  );
 
   //Blur on scroll Header
 
@@ -105,25 +119,27 @@ export function animation() {
 
   tlHeaderBlur
     .to(
-      contentInner, {
+      contentInner,
+      {
         y: -100,
-        duration: 1
+        duration: 1,
       },
       "Start"
     )
     .to(
-      contentInnerH1, {
-        webkitFilter: "blur(3px)"
+      contentInnerH1,
+      {
+        webkitFilter: "blur(3px)",
       },
       "Start"
     );
 
   // build scene
   new ScrollMagic.Scene({
-      triggerElement: "header",
-      triggerHook: 0,
-      duration: 800
-    })
+    triggerElement: "header",
+    triggerHook: 0,
+    duration: 800,
+  })
     .setTween(tlHeaderBlur)
     .addTo(controller);
 
@@ -138,15 +154,15 @@ export function animation() {
     y: 20,
     ease: "power3.inOut",
     stagger: {
-      amount: 0.3
-    }
+      amount: 0.3,
+    },
   });
 
   new ScrollMagic.Scene({
-      triggerElement: "#features",
-      //duration: 100
-      reverse: false
-    })
+    triggerElement: "#features",
+    //duration: 100
+    reverse: false,
+  })
     //.addIndicators()
     .setTween(tlFeaturesTitle)
     .addTo(controller);
@@ -162,50 +178,111 @@ export function animation() {
 
     fadeInUp
       .from(
-        items.querySelector(".image"), {
+        items.querySelector(".image"),
+        {
           y: 100,
           duration: 1,
           opacity: 0,
-          ease: "Power3.inOut"
+          ease: "Power3.inOut",
         },
         "start"
       )
       .from(
-        items.querySelector(".features-items h3"), {
+        items.querySelector(".features-items h3"),
+        {
           y: 100,
           duration: 1,
           opacity: 0,
-          ease: "Power3.inOut"
+          ease: "Power3.inOut",
         },
         "start"
       )
       .from(
-        items.querySelector(".features-items p"), {
+        items.querySelector(".features-items p"),
+        {
           y: 100,
           duration: 1,
           opacity: 0,
-          ease: "Power3.inOut"
+          ease: "Power3.inOut",
         },
         0.2
       )
       .from(
-        items.querySelector(".btn-row-features"), {
+        items.querySelector(".btn-row-features"),
+        {
           y: 100,
           duration: 1,
           opacity: 0,
-          ease: "Power3.inOut"
+          ease: "Power3.inOut",
         },
         0.4
       );
 
     new ScrollMagic.Scene({
-        triggerElement: items,
-        reverse: false
-      })
+      triggerElement: items,
+      reverse: false,
+    })
 
       .setTween(fadeInUp)
       .addTo(controller);
   });
+
+  // Users reviews
+  const usersReviews = document.getElementById("users-reviews");
+  const contentReviews = document.getElementsByClassName("content-reviews");
+  const userText = document.querySelectorAll(".user-text")[0];
+  const userImg = document.querySelectorAll(".user-img")[0];
+  const userName = document.querySelectorAll(".user-Name")[0];
+  const pagination = document.querySelectorAll(".swiper-pagination")[0];
+  
+
+  const usersReviewsTl = gsap.timeline();
+
+console.log(pagination)
+  usersReviewsTl
+    .from(contentReviews, 1, {
+      y: 100,
+      duration: 1,
+      opacity: 0,
+      ease: "Power3.inOut",
+    })
+    .from(userText, 0.3, {
+      y: 10,
+      duration: 1,
+      opacity: 0,
+      ease: "Power3.inOut",
+    }, "-=0.6")
+    .from(userImg, 0.3, {
+      y: 10,
+      duration: 1,
+      opacity: 0,
+      ease: "Power3.inOut",
+    }, "-=0.3")
+    .from(userName, 0.3, {
+      y: 10,
+      duration: 1,
+      opacity: 0,
+      ease: "Power3.inOut",
+    }, "-=0.1")
+    .from([pagination], 0.3, {
+      duration:1,
+      opacity: 0,
+      ease: "Power3.inOut",
+      stagger: {
+        amount: 0.3
+      }
+    },"-=0.3");
+  new ScrollMagic.Scene({
+    triggerElement: usersReviews,
+    offset: 200,
+    reverse: false,
+  })
+
+    .setTween(usersReviewsTl)
+    .addTo(controller);
+
+
+
 
   /*
 

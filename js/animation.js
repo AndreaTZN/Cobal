@@ -23,8 +23,7 @@ export function animation() {
   const titleFeaturesHr = document.querySelectorAll(".features-title hr");
   const titleFeaturesP = document.querySelectorAll(".features-title p");
 
-
-  console.log(navigation)
+  console.log(navigation);
   // init controller
   var controller = new ScrollMagic.Controller();
 
@@ -234,11 +233,10 @@ export function animation() {
   const userImg = document.querySelectorAll(".user-img")[0];
   const userName = document.querySelectorAll(".user-Name")[0];
   const pagination = document.querySelectorAll(".swiper-pagination")[0];
-  
 
   const usersReviewsTl = gsap.timeline();
 
-console.log(pagination)
+  console.log(pagination);
   usersReviewsTl
     .from(contentReviews, 1, {
       y: 100,
@@ -246,32 +244,49 @@ console.log(pagination)
       opacity: 0,
       ease: "Power3.inOut",
     })
-    .from(userText, 0.3, {
-      y: 10,
-      duration: 1,
-      opacity: 0,
-      ease: "Power3.inOut",
-    }, "-=0.6")
-    .from(userImg, 0.3, {
-      y: 10,
-      duration: 1,
-      opacity: 0,
-      ease: "Power3.inOut",
-    }, "-=0.3")
-    .from(userName, 0.3, {
-      y: 10,
-      duration: 1,
-      opacity: 0,
-      ease: "Power3.inOut",
-    }, "-=0.1")
-    .from([pagination], 0.3, {
-      duration:1,
-      opacity: 0,
-      ease: "Power3.inOut",
-      stagger: {
-        amount: 0.3
-      }
-    },"-=0.3");
+    .from(
+      userText,
+      0.3,
+      {
+        y: 10,
+        duration: 1,
+        opacity: 0,
+        ease: "Power3.inOut",
+      },
+      "-=0.6"
+    )
+    .from(
+      userImg,
+      0.3,
+      {
+        y: 10,
+        duration: 1,
+        opacity: 0,
+        ease: "Power3.inOut",
+      },
+      "-=0.3"
+    )
+    .from(
+      userName,
+      0.3,
+      {
+        y: 10,
+        duration: 1,
+        opacity: 0,
+        ease: "Power3.inOut",
+      },
+      "-=0.1"
+    )
+    .from(
+      pagination,
+      0.3,
+      {
+        duration: 1,
+        opacity: 0,
+        ease: "Power3.inOut",
+      },
+      "-=0.3"
+    );
   new ScrollMagic.Scene({
     triggerElement: usersReviews,
     offset: 200,
@@ -280,9 +295,6 @@ console.log(pagination)
 
     .setTween(usersReviewsTl)
     .addTo(controller);
-
-
-
 
   /*
 

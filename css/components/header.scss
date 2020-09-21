@@ -90,12 +90,8 @@ header {
       }
     }
 
-    
     @include media("<=1200px"){
       display: none;
     }
-    // @media (max-width: $desktop) {
-    //   display: none;
-    // }
   }
 }

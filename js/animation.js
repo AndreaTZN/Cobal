@@ -119,10 +119,10 @@ export function animation() {
       contentInner,
       {
         y: 0,
-       
-      },{
-        y:-40,
-        ease: "none" 
+      },
+      {
+        y: -40,
+        ease: "none",
       },
       "Start"
     )
@@ -175,54 +175,61 @@ export function animation() {
 
   featuresContentInner.forEach(function (items) {
     const fadeInUp = gsap.timeline();
+    const height = items.clientHeight;
 
-    fadeInUp
-      .from(
-        items.querySelector(".image"),
-        {
-          y: 100,
-          duration: 1,
-          opacity: 0,
-          ease: "Power3.inOut",
-        },
-        "start"
-      )
+    const heightResize = () => {
+      return items.clientHeight;
+    };
+
+    window.addEventListener("resize", (e) => {
+      height = items.clientHeight;
+    });
+
+    -fadeInUp
+      // .from(
+      //   items.querySelector(".image"),
+      //   {
+      //     y: 100,
+      //     duration: 1,
+      //     ease: "Power3.inOut",
+      //   },
+      //   "ok"
+      // )
       .from(
         items.querySelector(".features-items h3"),
         {
-          y: 100,
+          y: 30,
           duration: 1,
-          opacity: 0,
+          //opacity: 0,
           ease: "Power3.inOut",
         },
-        "start"
+        "ok"
       )
       .from(
         items.querySelector(".features-items p"),
         {
           y: 100,
           duration: 1,
-          opacity: 0,
+          //opacity: 0,
           ease: "Power3.inOut",
         },
-        0.2
+        "ok"
       )
       .from(
         items.querySelector(".btn-row-features"),
         {
           y: 100,
           duration: 1,
-          opacity: 0,
+          //opacity: 0,
           ease: "Power3.inOut",
         },
-        0.4
+        "ok"
       );
 
     new ScrollMagic.Scene({
       triggerElement: items,
-      reverse: false,
+      duration: heightResize,
     })
-
       .setTween(fadeInUp)
       .addTo(controller);
   });
@@ -236,7 +243,6 @@ export function animation() {
   const pagination = document.querySelectorAll(".swiper-pagination")[0];
 
   const usersReviewsTl = gsap.timeline();
-
 
   usersReviewsTl
     .from(contentReviews, 1, {

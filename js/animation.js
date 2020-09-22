@@ -20,10 +20,8 @@ export function animation() {
   //FeaturesTitle
 
   const titleFeaturesH2 = document.querySelectorAll(".features-title h2");
-  const titleFeaturesHr = document.querySelectorAll(".features-title hr");
   const titleFeaturesP = document.querySelectorAll(".features-title p");
 
-  console.log(navigation);
   // init controller
   var controller = new ScrollMagic.Controller();
 
@@ -117,11 +115,14 @@ export function animation() {
   const tlHeaderBlur = gsap.timeline();
 
   tlHeaderBlur
-    .to(
+    .fromTo(
       contentInner,
       {
-        y: -100,
-        duration: 1,
+        y: 0,
+       
+      },{
+        y:-40,
+        ease: "none" 
       },
       "Start"
     )
@@ -147,7 +148,7 @@ export function animation() {
   // Timeline FeaturesTitle
   const tlFeaturesTitle = gsap.timeline();
 
-  tlFeaturesTitle.from([titleFeaturesH2, titleFeaturesHr, titleFeaturesP], {
+  tlFeaturesTitle.from([titleFeaturesH2, titleFeaturesP], {
     duration: 1,
     opacity: 0,
     y: 20,
@@ -236,7 +237,7 @@ export function animation() {
 
   const usersReviewsTl = gsap.timeline();
 
-  console.log(pagination);
+
   usersReviewsTl
     .from(contentReviews, 1, {
       y: 100,

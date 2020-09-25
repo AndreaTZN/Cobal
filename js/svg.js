@@ -1,5 +1,4 @@
 export function pathSvg() {
-  const body = document.querySelector("body");
 
   const word = document.querySelector(".path");
   const featuresLine = document.getElementsByClassName("features-line")[0];
@@ -13,7 +12,7 @@ export function pathSvg() {
   function featureHeight() {
     return featureLineHeight;
   }
-
+  featureHeight();
   window.addEventListener("resize", function () {
     featureLineHeight = featuresLine.offsetHeight;
   });
@@ -39,7 +38,7 @@ export function pathSvg() {
 
   // draw word for 0.9
   // build scene
-  let scene = new ScrollMagic.Scene({
+   new ScrollMagic.Scene({
       triggerElement: featuresContentInner,
       duration: featureHeight,
       tweenChanges: true,
@@ -48,4 +47,4 @@ export function pathSvg() {
 
     .setTween(tween)
     .addTo(controller);
-}
+};

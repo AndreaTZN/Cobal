@@ -22,7 +22,7 @@
 
 .btn-row-features {
   text-align: center;
-  margin-top: 36px;
+  margin-top: 35px;
   padding: 25px 15px;
   color: $white;
   position: relative;
@@ -43,10 +43,9 @@
     text-decoration: none;
     font-family: $font;
     font-size: 0.875rem;
-    ;
   }
 
   @media (max-width:$tablet) {
-    margin: 0 auto;
+    margin: 30px auto;
   }
 }

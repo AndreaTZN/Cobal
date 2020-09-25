@@ -160,10 +160,8 @@ export function animation() {
 
   new ScrollMagic.Scene({
     triggerElement: "#features",
-    //duration: 100
-    reverse: false,
   })
-    //.addIndicators()
+
     .setTween(tlFeaturesTitle)
     .addTo(controller);
 
@@ -177,15 +175,16 @@ export function animation() {
     const fadeInUp = gsap.timeline();
     const height = items.clientHeight;
 
-    const heightResize = () => {
-      return items.clientHeight;
-    };
+    let heightResize = () => {
+      return items.clientHeight + 300;
+      };
 
-    window.addEventListener("resize", (e) => {
+    heightResize(); // set to initial value
+    window.addEventListener("resize", () => {
       height = items.clientHeight;
     });
 
-    -fadeInUp
+    fadeInUp
       // .from(
       //   items.querySelector(".image"),
       //   {
@@ -195,41 +194,53 @@ export function animation() {
       //   },
       //   "ok"
       // )
-      .from(
-        items.querySelector(".features-items h3"),
-        {
-          y: 30,
-          duration: 1,
-          //opacity: 0,
-          ease: "Power3.inOut",
-        },
-        "ok"
-      )
-      .from(
+      // .fromTo(
+      //   items.querySelector(".features-items h3"),1,
+      //   {
+      //     y: 20,
+      //     //duration: 1,
+      //     ease: "Power3.inOut",
+      //   },{
+      //     y: -20,
+      //   },
+      //   "ok"
+      // )
+      .fromTo(
         items.querySelector(".features-items p"),
         {
-          y: 100,
-          duration: 1,
-          //opacity: 0,
-          ease: "Power3.inOut",
-        },
-        "ok"
+          y: 20,
+          ease:"none",
+          //duration: 1,
+        }, {
+          y: -20,
+          ease:"none",
+          //delay:-.5
+          //duration: 2
+        },"started"
       )
-      .from(
+      .fromTo(
         items.querySelector(".btn-row-features"),
         {
-          y: 100,
-          duration: 1,
-          //opacity: 0,
-          ease: "Power3.inOut",
-        },
-        "ok"
+          y: 40,
+          ease:"none",
+          //delay:-.5
+          //duration: 2
+        }, {
+          y: -40,
+          ease:"none",
+          //delay:-.5
+          //duration: 2
+        },"started"
       );
 
     new ScrollMagic.Scene({
       triggerElement: items,
+      offset:-100,
       duration: heightResize,
+      reverse:true
+      
     })
+  
       .setTween(fadeInUp)
       .addTo(controller);
   });

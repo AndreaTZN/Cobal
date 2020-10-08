@@ -165,68 +165,65 @@ export function animation() {
     .setTween(tlFeaturesTitle)
     .addTo(controller);
 
-  //FeaturesContent
 
+
+
+
+
+  //FeaturesContent
+  
   let featuresContentInner = document.querySelectorAll(
     ".features-content-inner"
   );
 
   featuresContentInner.forEach(function (items) {
     const fadeInUp = gsap.timeline();
-    const height = items.clientHeight;
+    let height = items.clientHeight;
+
+
+
+  /**
+   * 
+   * @param {} callback 
+   * @param {} delay 
+   */
+
+  function debounce(callback, delay){
+    var timer;
+    return function(){
+        var args = arguments;
+        var context = this;
+        clearTimeout(timer);
+        timer = setTimeout(function(){
+            callback.apply(context, args);
+        }, delay)
+    }
+}
+
 
     let heightResize = () => {
       return items.clientHeight + 300;
       };
 
     heightResize(); // set to initial value
-    window.addEventListener("resize", () => {
+    
+    window.addEventListener("resize", debounce(function() {
       height = items.clientHeight;
-    });
+    }, 300));
 
     fadeInUp
-      // .from(
-      //   items.querySelector(".image"),
-      //   {
-      //     y: 100,
-      //     duration: 1,
-      //     ease: "Power3.inOut",
-      //   },
-      //   "ok"
-      // )
-      // .fromTo(
-      //   items.querySelector(".features-items h3"),1,
-      //   {
-      //     y: 20,
-      //     //duration: 1,
-      //     ease: "Power3.inOut",
-      //   },{
-      //     y: -20,
-      //   },
-      //   "ok"
-      // )
-      .fromTo(
+      .from(
         items.querySelector(".features-items p"),
-        {
-          y: 20,
-          ease:"none",
-          //duration: 1,
-        }, {
-          y: -20,
-          ease:"none",
-          //delay:-.5
-          //duration: 2
-        },"started"
-      )
-      .fromTo(
-        items.querySelector(".btn-row-features"),
         {
           y: 40,
           ease:"none",
-          //delay:-.5
-          //duration: 2
-        }, {
-          y: -40,
+          //duration: 1,
+        },"started"
+      )
+      .from(
+        items.querySelector(".btn-row-features"),
+        {
+          y: 60,
           ease:"none",
           //delay:-.5
           //duration: 2
@@ -313,6 +310,7 @@ export function animation() {
 
     .setTween(usersReviewsTl)
     .addTo(controller);
+    
 
   /*
 

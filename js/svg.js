@@ -9,19 +9,44 @@ export function pathSvg() {
 
   let featureLineHeight = featuresLine.offsetHeight;
 
+
+
   function featureHeight() {
     return featureLineHeight;
   }
+
   featureHeight();
-  window.addEventListener("resize", function () {
+
+
+  /**
+   * 
+   * @param {} callback 
+   * @param {} delay 
+   */
+
+  function debounce(callback, delay){
+    var timer;
+    return function(){
+        var args = arguments;
+        var context = this;
+        clearTimeout(timer);
+        timer = setTimeout(function(){
+            callback.apply(context, args);
+        }, delay)
+    }
+}
+
+  window.addEventListener("resize", debounce(function(e) {
     featureLineHeight = featuresLine.offsetHeight;
-  });
+  },300));
 
   function pathPrepare(el) {
     let lineLength = el.getTotalLength();
     el.style.strokeDasharray = lineLength;
     el.style.strokeDashoffset = lineLength;
   }
+
+
   // prepare SVG
   pathPrepare(word);
 
@@ -34,10 +59,9 @@ export function pathSvg() {
       strokeDashoffset: 0,
       ease: Linear.easeNone
     })
-  );
+  )
 
-  // draw word for 0.9
-  // build scene
+
    new ScrollMagic.Scene({
       triggerElement: featuresContentInner,
       duration: featureHeight,

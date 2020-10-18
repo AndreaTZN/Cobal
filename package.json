@@ -16,8 +16,6 @@
     "sass": "^1.26.8"
   },
   "dependencies": {
-    "browserslist": "^4.12.0",
-    "caniuse-lite": "^1.0.30001084",
     "postcss-modules": "^2.0.0"
   }
 }

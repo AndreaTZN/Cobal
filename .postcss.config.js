@@ -1,7 +1,9 @@
 module.exports = {
+    "modules": true,
     plugins: [
         require('autoprefixer'),
-        require('postcss-modules'),
-        require('cssnano')
+        require('cssnano')({
+            preset: 'default',
+        }),
     ]
 }

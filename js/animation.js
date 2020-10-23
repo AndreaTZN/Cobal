@@ -246,9 +246,11 @@ export function animation() {
   const usersReviews = document.getElementById("users-reviews");
   const contentReviews = document.getElementsByClassName("content-reviews");
   const userText = document.querySelectorAll(".user-text")[0];
+  const CircleImg = document.querySelector(".user-img");
   const userImg = document.querySelectorAll(".user-img")[0];
-  const userName = document.querySelectorAll(".user-Name")[0];
+  const userName = document.querySelectorAll(".user-name")[0];
   const pagination = document.querySelectorAll(".swiper-pagination")[0];
+
 
   const usersReviewsTl = gsap.timeline();
 
@@ -268,19 +270,14 @@ export function animation() {
         opacity: 0,
         ease: "Power3.inOut",
       },
-      "-=0.6"
+      "-=0.8"
     )
-    .from(
-      userImg,
-      0.3,
-      {
-        y: 10,
-        duration: 1,
-        opacity: 0,
-        ease: "Power3.inOut",
-      },
-      "-=0.3"
-    )
+    .from(CircleImg,0.3,{
+      scaleX:0,
+      scaleY:0,
+      duration: 1,
+      ease: "Power3.inOut",
+    }, "-=0.6")
     .from(
       userName,
       0.3,
@@ -290,7 +287,7 @@ export function animation() {
         opacity: 0,
         ease: "Power3.inOut",
       },
-      "-=0.1"
+      "-=0.3"
     )
     .from(
       pagination,
@@ -300,7 +297,7 @@ export function animation() {
         opacity: 0,
         ease: "Power3.inOut",
       },
-      "-=0.3"
+      "-=0.1"
     );
   new ScrollMagic.Scene({
     triggerElement: usersReviews,

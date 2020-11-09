@@ -11,6 +11,7 @@ window.onload = () => {
   pathSvg();
   animation();
   swiper();
+
   
   const cursor = new Cursor(document.querySelector('.cursor'));
 };

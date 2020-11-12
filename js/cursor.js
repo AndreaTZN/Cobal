@@ -8,6 +8,7 @@ export default class Cursor {
   constructor(el) {
     this.Cursor = el;
     this.Cursor.style.opacity = 0;
+
     this.bounds = this.Cursor.getBoundingClientRect();
     this.cursorConfigs = {
       x: { previous: 0, current: 0, amt: 0.2},
@@ -22,6 +23,7 @@ export default class Cursor {
         ease: 'Power3.easeOut',
         opacity: 1,
       });
+
       requestAnimationFrame(() => this.render());
       window.removeEventListener('mousemove', this.onMouseMoveEv);
     };

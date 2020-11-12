@@ -121,7 +121,7 @@ export function animation() {
         y: 0,
       },
       {
-        y: -40,
+        y: -100,
         ease: "none",
       },
       "Start"
@@ -138,7 +138,7 @@ export function animation() {
   new ScrollMagic.Scene({
     triggerElement: "header",
     triggerHook: 0,
-    duration: 800,
+    duration: 700,
   })
     .setTween(tlHeaderBlur)
     .addTo(controller);
@@ -160,6 +160,7 @@ export function animation() {
 
   new ScrollMagic.Scene({
     triggerElement: "#features",
+    reverse:false
   })
 
     .setTween(tlFeaturesTitle)

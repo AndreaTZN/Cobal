@@ -16,5 +16,8 @@
     "postcss-modules": "^3.2.2",
     "sass": "^1.27.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "components": "^0.1.0",
+    "swiper": "^6.3.5"
+  }
 }

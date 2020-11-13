@@ -20,39 +20,79 @@
   );
 
   width: 100%;
-  padding: 200px 0px;
+  padding: 300px 0px;
   position: relative;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-
   overflow-x: hidden;
 
-  .reviews-inner{
+  @include media("<=tablet") {
+    padding: 100px 0px;
+  }
+  .reviews-inner {
     width: 100%;
 
-    .reviews-title{
-     margin-bottom: 50px;
-      h2 {
-        text-align: center;
-        font-family: $font;
-        font-size: 2.3rem;
-        color: $white;
-        font-weight: 700;
-        margin: 0;
+    .reviews-header {
+      margin-bottom: 50px;
+      display: flex;
+      justify-content: space-between;
+      .reviews-title {
+        h3 {
+          font-family: $font;
+          font-size: 2.3rem;
+          color: $white;
+          font-weight: 500;
+          margin: 0;
+        }
+      }
+      .swiper-button {
+        width: 120px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .btn-swiper {
+          height: 50px;
+          width: 50px;
+          border-radius: 50%;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          transition: background-color 0.3s ease-in;
+          &:hover {
+            background-color: rgba(250, 250, 250, 0.3);
+          }
+          &.swiper-button-disabled {
+            &:hover {
+              background-color: rgba(250, 250, 250, 0.15);
+            }
+          }
+
+          &.swiper-button-prev {
+            transform: rotate(180deg);
+          }
+          svg {
+            stroke: $white;
+            display: inline-block;
+            height: 15px;
+            transition: opacity 0.3s ease-out;
+          }
+        }
       }
     }
   }
-
   .content-reviews {
     position: relative;
-    .swiper-container{
+    .swiper-container {
       overflow: visible;
     }
-    .swiper-slide{
-      width: 50%;
+    .swiper-slide {
+      width: calc(50% - 15px);
       padding-top: 50px;
       padding-bottom: 50px;
       padding-right: 100px;
@@ -88,7 +128,7 @@
           margin: 0;
         }
       }
-    
+
       .user-img {
         width: 50px;
         height: 50px;
@@ -100,7 +140,7 @@
           max-width: 100%;
         }
       }
-    
+
       .user-name {
         margin-top: 20px;
         text-align: center;
@@ -111,18 +151,14 @@
           font-weight: 400;
         }
       }
-    
-
     }
-    
   }
-
 
   // .swiper-pagination {
   //   position: initial;
   //   display: flex;
   //   justify-content: center;
-  //   align-items: center;  
+  //   align-items: center;
   //   margin-top: 100px;
 
   //   @media (max-width: $tablet) {

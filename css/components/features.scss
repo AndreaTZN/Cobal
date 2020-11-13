@@ -4,7 +4,6 @@
   padding: 100px 0;
   position: relative;
 
-
   .features-obj {
     position: absolute;
     width: 100%;
@@ -25,7 +24,6 @@
 
   .features-inner {
     width: 100%;
-
 
     .features-title {
       max-width: 800px;
@@ -52,7 +50,6 @@
 
     .reverse {
       flex-direction: row-reverse;
-
     }
 
     .features-content {
@@ -66,26 +63,24 @@
         margin: 0 auto;
         z-index: -10;
 
-        @media (max-width:$laptop) {
+        @include media("<=desktop") {
           display: none;
           width: 70%;
         }
-        @media (max-width:$tablet) {
+        @include media("<=tablet") {
           display: none;
         }
       }
 
-
       .features-content-inner {
-
         display: flex;
         align-items: center;
         justify-content: space-around;
         flex-wrap: wrap;
         margin-bottom: 250px;
 
-        @include media("<=tablet"){
-          &:last-child{
+        @include media("<=tablet") {
+          &:last-child {
             margin-bottom: 0;
           }
         }
@@ -109,8 +104,10 @@
             justify-content: center;
           }
 
-          @media (max-width:$tablet) {
-            width: 70%;
+          @include media("<=tablet") {
+            &:last-child {
+              width: 70%;
+            }
           }
         }
 
@@ -133,13 +130,12 @@
             margin: 0;
           }
 
-          @media (max-width:$tablet) {
+          @include media("<=tablet") {
             width: 100%;
             text-align: center;
             margin-top: 50px;
           }
         }
-     
       }
     }
   }

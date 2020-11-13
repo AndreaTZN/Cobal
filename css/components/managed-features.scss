@@ -1,99 +1,85 @@
 .managed-features {
-    background-color: #F5F9FC;
-    padding: 100px 0 136px;
-    position: relative;
+  background-color: #f5f9fc;
+  padding: 100px 0 136px;
+  position: relative;
 
-    .features-inner {
-        width: 100%;
+  .features-inner {
+    width: 100%;
 
-        .features-content {
+    .features-content {
+      margin: 0 auto;
 
-           
-            margin: 0 auto;
+      .features-content-inner {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
 
-
-            .features-content-inner {
-
-                display: flex;
-                align-items: center;
-                flex-wrap: wrap;
-
-                @media (max-width: $desktop) {
-                    flex-direction: column-reverse;
-                }
-
-                .image {
-                    width: 40%;
-                    position: absolute;
-                    top: -50px;
-                    right: 0;
-                    z-index: 10;
-
-                    .image-inner {
-                        position: relative;
-
-                        .img1 {
-                            max-width: 430px;
-                        }
-
-                        .img2 {
-                            position: absolute;
-                            left: 30px;
-                            top: 60px;
-                            max-width: 350px;
-
-                        }
-                    }
-
-
-                    @media (max-width: $desktop) {
-                        position: initial;
-                        display: none;
-                        justify-content: center;
-
-                        width: 100%;
-
-                    }
-                }
-
-                .features-items {
-                    width: 60%;
-
-                    h3 {
-                        font-family: $font;
-                        font-size: 2.25rem;
-                        color: $blueFeatures;
-                        font-weight: 500;
-                        margin: 0px 0px 30px 0px;
-                    }
-
-                    p {
-                        font-family: $fontP;
-                        font-size: 1rem;
-                        line-height: 32px;
-                        color: $greyP;
-                        margin: 0;
-                    }
-
-                    @media (max-width:$desktop) {
-                        width: 100%;
-                        text-align: center;
-                    }
-
-                    .btn-row-features {
-
-                        @media (max-width:$desktop) {
-                            margin: 30px auto;
-                        }
-                    }
-
-
-                }
-
-
-            }
+        @include media("<=desktop") {
+          flex-direction: column-reverse;
         }
+
+        .image {
+          width: 40%;
+          position: absolute;
+          top: -50px;
+          right: 0;
+          z-index: 10;
+
+          .image-inner {
+            position: relative;
+
+            .img1 {
+              max-width: 430px;
+            }
+
+            .img2 {
+              position: absolute;
+              left: 30px;
+              top: 60px;
+              max-width: 350px;
+            }
+          }
+
+          @include media("<=desktop") {
+            position: initial;
+            display: none;
+            justify-content: center;
+
+            width: 100%;
+          }
+        }
+
+        .features-items {
+          width: 60%;
+
+          h3 {
+            font-family: $font;
+            font-size: 2.25rem;
+            color: $blueFeatures;
+            font-weight: 500;
+            margin: 0px 0px 30px 0px;
+          }
+
+          p {
+            font-family: $fontP;
+            font-size: 1rem;
+            line-height: 32px;
+            color: $greyP;
+            margin: 0;
+          }
+
+          @include media("<=desktop") {
+            width: 100%;
+            text-align: center;
+          }
+
+          .btn-row-features {
+            @include media("<=desktop") {
+              margin: 30px auto;
+            }
+          }
+        }
+      }
     }
-
-
+  }
 }

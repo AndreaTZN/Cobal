@@ -1,11 +1,11 @@
-//media query
-$mobile: "480px";
-$tablet: "768px";
-$laptop: "960px";
-$desktop: "1200px";
-$widescreen: "1440px";
+// //media query
+// $mobile: "480px";
+// $tablet: "768px";
+// $laptop: "960px";
+// $desktop: "1200px";
+// $widescreen: "1440px";
 
-//Container Padding 
+//Container Padding
 
 // color
 $blue: #4c83ff;
@@ -14,14 +14,11 @@ $greyDark: #5f5c55;
 $orange: #daa932;
 $white: #ffffff;
 $blueTitle: #324865;
-$blueFeatures:#1A264A;
-$greyP:#585E68;
+$blueFeatures: #1a264a;
+$greyP: #585e68;
 
-$font: "Poppins",
-sans-serif;
-$fontP:"Open Sans",
-sans-serif;
-
+$font: "Poppins", sans-serif;
+$fontP: "Open Sans", sans-serif;
 
 ::-moz-selection {
   text-shadow: 0.15em 0.15em 0em rgba(242, 57, 85, 0.19);

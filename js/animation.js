@@ -140,6 +140,7 @@ export function animation() {
     triggerHook: 0,
     duration: 700,
   })
+  .addIndicators()
     .setTween(tlHeaderBlur)
     .addTo(controller);
 
@@ -162,7 +163,7 @@ export function animation() {
     triggerElement: "#features",
     reverse:false
   })
-
+  .addIndicators()
     .setTween(tlFeaturesTitle)
     .addTo(controller);
 
@@ -216,7 +217,7 @@ export function animation() {
       .from(
         items.querySelector(".features-items p"),
         {
-          y: 40,
+          y: 100,
           ease:"none",
           //duration: 1,
         },"started"
@@ -224,7 +225,7 @@ export function animation() {
       .from(
         items.querySelector(".btn-row-features"),
         {
-          y: 60,
+          y: 120,
           ease:"none",
           //delay:-.5
           //duration: 2
@@ -238,74 +239,34 @@ export function animation() {
       reverse:true
       
     })
-  
+    .addIndicators()
       .setTween(fadeInUp)
       .addTo(controller);
   });
 
   // Users reviews
-  const usersReviews = document.getElementById("users-reviews");
-  const contentReviews = document.getElementsByClassName("content-reviews");
-  const userText = document.querySelectorAll(".user-text")[0];
-  const CircleImg = document.querySelector(".user-img");
-  const userImg = document.querySelectorAll(".user-img")[0];
-  const userName = document.querySelectorAll(".user-name")[0];
-  const pagination = document.querySelectorAll(".swiper-pagination")[0];
+  const usersReviews = document.querySelector('.users-reviews');
+  const swiperSlide = document.querySelectorAll(".swiper-slide");
 
 
   const usersReviewsTl = gsap.timeline();
 
   usersReviewsTl
-    .from(contentReviews, 1, {
-      y: 100,
+    .from(swiperSlide, {
       duration: 1,
       opacity: 0,
-      ease: "Power3.inOut",
-    })
-    .from(
-      userText,
-      0.3,
-      {
-        y: 10,
-        duration: 1,
-        opacity: 0,
-        ease: "Power3.inOut",
+      y: 30,
+      ease: "power3.inOut",
+      stagger: {
+        amount: 1,
       },
-      "-=0.8"
-    )
-    .from(CircleImg,0.3,{
-      scaleX:0,
-      scaleY:0,
-      duration: 1,
-      ease: "Power3.inOut",
-    }, "-=0.6")
-    .from(
-      userName,
-      0.3,
-      {
-        y: 10,
-        duration: 1,
-        opacity: 0,
-        ease: "Power3.inOut",
-      },
-      "-=0.3"
-    )
-    .from(
-      pagination,
-      0.3,
-      {
-        duration: 1,
-        opacity: 0,
-        ease: "Power3.inOut",
-      },
-      "-=0.1"
-    );
+    });
   new ScrollMagic.Scene({
     triggerElement: usersReviews,
-    offset: 200,
     reverse: false,
   })
 
+    .addIndicators()
     .setTween(usersReviewsTl)
     .addTo(controller);
     

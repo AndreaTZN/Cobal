@@ -3,7 +3,7 @@ import { lerp, getMousePos } from './utils';
 let mouse = { x: 0, y: 0 };
 
 window.addEventListener('mousemove', (ev) => (mouse = getMousePos(ev)));
-
+window.addEventListener('touchmove', (ev) => (mouse = getMousePos(ev)));
 export default class Cursor {
   constructor(el) {
     this.Cursor = el;
@@ -15,7 +15,7 @@ export default class Cursor {
       y: { previous: 0, current: 0, amt: 0.2 },
     };
 
-    
+
     this.onMouseMoveEv = () => {
       this.cursorConfigs.x.previous = this.cursorConfigs.x.current = mouse.x;
       this.cursorConfigs.y.previous = this.cursorConfigs.y.current = mouse.y;

@@ -65,11 +65,11 @@
 
           transition: background-color 0.3s ease-in;
           &:hover {
-            background-color: rgba(250, 250, 250, 0.3);
+            background-color: rgba(250, 250, 250, 0.5);
           }
           &.swiper-button-disabled {
             &:hover {
-              background-color: rgba(250, 250, 250, 0.15);
+              background-color: rgba(250, 250, 250, 0.1);
             }
           }
 

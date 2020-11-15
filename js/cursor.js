@@ -1,20 +1,19 @@
-import { lerp, getMousePos } from './utils';
+import { lerp, getMousePos } from "./utils";
 
 let mouse = { x: 0, y: 0 };
 
-window.addEventListener('mousemove', (ev) => (mouse = getMousePos(ev)));
-window.addEventListener('touchmove', (ev) => (mouse = getMousePos(ev)));
+window.addEventListener("mousemove", (ev) => (mouse = getMousePos(ev)));
+
 export default class Cursor {
   constructor(el) {
     this.Cursor = el;
     this.Cursor.style.opacity = 0;
+    this.links = document.querySelectorAll(".magnetic");
 
-    this.bounds = this.Cursor.getBoundingClientRect();
     this.cursorConfigs = {
-      x: { previous: 0, current: 0, amt: 0.2},
+      x: { previous: 0, current: 0, amt: 0.2 },
       y: { previous: 0, current: 0, amt: 0.2 },
     };
-
 
     this.onMouseMoveEv = () => {
       this.cursorConfigs.x.previous = this.cursorConfigs.x.current = mouse.x;
@@ -22,18 +21,40 @@ export default class Cursor {
 
       gsap.to(this.Cursor, {
         duration: 1,
-        ease: 'Power3.easeOut',
+        ease: "Power3.easeOut",
         opacity: 1,
       });
 
+      this.onScaleMouse();
       requestAnimationFrame(() => this.render());
-      window.removeEventListener('mousemove', this.onMouseMoveEv);
+      window.removeEventListener("mousemove", this.onMouseMoveEv);
     };
     // Assign the mouse function
-    window.addEventListener('mousemove', this.onMouseMoveEv);
+    window.addEventListener("mousemove", this.onMouseMoveEv);
   }
 
+  onScaleMouse() {
+    this.links.forEach((link) => {
+      if (link.matches(":hover")) {
+        this.scaleAnimation(this.Cursor.children[0], 0);
+      }
 
+      link.addEventListener("mouseenter", () => {
+        this.scaleAnimation(this.Cursor.children[0], 0);
+      });
+
+      link.addEventListener("mouseleave", () => {
+        this.scaleAnimation(this.Cursor.children[0], 0.2);
+      });
+    });
+  }
+  scaleAnimation(el, amt) {
+    gsap.to(el, {
+      duration: 0.6,
+      scale: amt,
+      ease: "Power3.easeOut",
+    });
+  }
 
   render() {
     this.cursorConfigs.x.current = mouse.x;

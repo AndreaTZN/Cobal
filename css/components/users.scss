@@ -71,16 +71,19 @@
             &:hover {
               background-color: rgba(250, 250, 250, 0.1);
             }
+            svg {
+              opacity: 0.3;
+            }
           }
 
-          &.swiper-button-prev {
-            transform: rotate(180deg);
-          }
           svg {
             stroke: $white;
             display: inline-block;
             height: 15px;
             transition: opacity 0.3s ease-out;
+          }
+          &:first-child svg {
+            transform: rotate(180deg);
           }
         }
       }

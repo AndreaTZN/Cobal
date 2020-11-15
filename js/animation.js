@@ -1,3 +1,5 @@
+import { debounce } from "./utils";
+
 export function animation() {
   // Body
   const body = document.querySelector("body");
@@ -140,7 +142,7 @@ export function animation() {
     triggerHook: 0,
     duration: 700,
   })
-  .addIndicators()
+
     .setTween(tlHeaderBlur)
     .addTo(controller);
 
@@ -161,19 +163,14 @@ export function animation() {
 
   new ScrollMagic.Scene({
     triggerElement: "#features",
-    reverse:false
+    reverse: false,
   })
-  .addIndicators()
+
     .setTween(tlFeaturesTitle)
     .addTo(controller);
 
-
-
-
-
-
   //FeaturesContent
-  
+
   let featuresContentInner = document.querySelectorAll(
     ".features-content-inner"
   );
@@ -182,94 +179,73 @@ export function animation() {
     const fadeInUp = gsap.timeline();
     let height = items.clientHeight;
 
-
-
-  /**
-   * 
-   * @param {} callback 
-   * @param {} delay 
-   */
-
-  function debounce(callback, delay){
-    var timer;
-    return function(){
-        var args = arguments;
-        var context = this;
-        clearTimeout(timer);
-        timer = setTimeout(function(){
-            callback.apply(context, args);
-        }, delay)
-    }
-}
-
-
     let heightResize = () => {
       return items.clientHeight + 300;
-      };
+    };
 
     heightResize(); // set to initial value
-    
-    window.addEventListener("resize", debounce(function() {
-      height = items.clientHeight;
-    }, 300));
+
+    window.addEventListener(
+      "resize",
+      debounce(function () {
+        height = items.clientHeight;
+      }, 300)
+    );
 
     fadeInUp
       .from(
         items.querySelector(".features-items p"),
         {
           y: 100,
-          ease:"none",
+          ease: "none",
           //duration: 1,
-        },"started"
+        },
+        "started"
       )
       .from(
         items.querySelector(".btn-row-features"),
         {
           y: 120,
-          ease:"none",
+          ease: "none",
           //delay:-.5
           //duration: 2
-        },"started"
+        },
+        "started"
       );
 
     new ScrollMagic.Scene({
       triggerElement: items,
-      offset:-100,
+      offset: -100,
       duration: heightResize,
-      reverse:true
-      
+      reverse: true,
     })
-    .addIndicators()
+
       .setTween(fadeInUp)
       .addTo(controller);
   });
 
   // Users reviews
-  const usersReviews = document.querySelector('.users-reviews');
+  const usersReviews = document.querySelector(".users-reviews");
   const swiperSlide = document.querySelectorAll(".swiper-slide");
-
 
   const usersReviewsTl = gsap.timeline();
 
-  usersReviewsTl
-    .from(swiperSlide, {
-      duration: 1,
-      opacity: 0,
-      y: 30,
-      ease: "power3.inOut",
-      stagger: {
-        amount: 1,
-      },
-    });
+  usersReviewsTl.from(swiperSlide, {
+    duration: 1,
+    opacity: 0,
+    y: 30,
+    ease: "power3.inOut",
+    stagger: {
+      amount: 1,
+    },
+  });
   new ScrollMagic.Scene({
     triggerElement: usersReviews,
     reverse: false,
   })
 
-    .addIndicators()
     .setTween(usersReviewsTl)
     .addTo(controller);
-    
 
   /*
 

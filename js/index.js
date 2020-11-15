@@ -2,9 +2,8 @@ import { activeBurger } from "./burger";
 import { pathSvg } from "./svg";
 import { animation } from "./animation";
 import { swiper } from "./swiper";
-import Cursor from './cursor';
-
-
+import Cursor from "./cursor";
+import { isMobile } from "./utils";
 
 window.onload = () => {
   activeBurger();
@@ -12,5 +11,7 @@ window.onload = () => {
   animation();
   swiper();
 
-  const cursor = new Cursor(document.querySelector('.cursor'));
+  if (!isMobile()) {
+    const cursor = new Cursor(document.querySelector(".cursor"));
+  }
 };

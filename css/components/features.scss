@@ -97,17 +97,8 @@
             justify-content: center;
             margin: 0 auto;
           }
-
-          object {
-            max-width: 100%;
-            display: flex;
-            justify-content: center;
-          }
-
           @include media("<=tablet") {
-            &:last-child {
-              width: 70%;
-            }
+            width: 100%;
           }
         }
 

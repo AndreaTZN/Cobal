@@ -15,6 +15,14 @@
 * {
   box-sizing: border-box;
 }
+::-moz-selection {
+  text-shadow: 0.15em 0.15em 0em rgba(116, 100, 253, 0.5);
+}
+
+::selection {
+  text-shadow: 0.15em 0.15em 0em rgba(116, 100, 253, 0.5);
+}
+
 body,
 html {
   visibility: hidden;

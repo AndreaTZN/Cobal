@@ -2,12 +2,15 @@ import { lerp, getMousePos } from "./utils";
 
 let mouse = { x: 0, y: 0 };
 
-window.addEventListener("mousemove", (ev) => (mouse = getMousePos(ev)));
+window.addEventListener("mousemove", (ev) => {
+  mouse = getMousePos(ev);
+});
 
 export default class Cursor {
   constructor(el) {
     this.Cursor = el;
     this.Cursor.style.opacity = 0;
+
     this.links = document.querySelectorAll(".magnetic");
 
     this.cursorConfigs = {
@@ -29,6 +32,7 @@ export default class Cursor {
       requestAnimationFrame(() => this.render());
       window.removeEventListener("mousemove", this.onMouseMoveEv);
     };
+
     // Assign the mouse function
     window.addEventListener("mousemove", this.onMouseMoveEv);
   }

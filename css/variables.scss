@@ -20,10 +20,8 @@ $greyP: #585e68;
 $font: "Poppins", sans-serif;
 $fontP: "Open Sans", sans-serif;
 
-::-moz-selection {
-  text-shadow: 0.15em 0.15em 0em rgba(116, 100, 253, 0.5);
-}
-
-::selection {
-  text-shadow: 0.15em 0.15em 0em rgba(116, 100, 253, 0.5);
-}
+$poppinsLight: 300;
+$poppinsRegular: 400;
+$poppinsMedium: 500;
+$poppinsSemiBold: 600;
+$poppinsBold: 600;

@@ -35,6 +35,9 @@
         li {
           padding: 0px 10px;
           width: 16.666%;
+          @include media("<=tablet") {
+            width: 33.333%;
+          }
           img {
             max-width: 100%;
           }

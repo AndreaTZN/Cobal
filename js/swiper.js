@@ -3,6 +3,7 @@ import Swiper, { Navigation, Keyboard } from "swiper";
 import "swiper/swiper.scss";
 import "swiper/components/a11y/a11y.scss";
 import "swiper/components/controller/controller.scss";
+import { gsap } from "gsap";
 
 Swiper.use([Navigation, Keyboard]);
 

@@ -20,6 +20,11 @@ const isMobile = () => {
   // return true;
 };
 
+/**
+ *
+ * @param {} callback
+ * @param {} delay
+ */
 function debounce(callback, delay) {
   var timer;
   return function () {

@@ -1,6 +1,6 @@
 .managed-features {
   background-color: #f5f9fc;
-  padding: 100px 0 136px;
+  padding: 100px 0 100px;
   position: relative;
 
   .features-inner {
@@ -9,7 +9,7 @@
     .features-content {
       margin: 0 auto;
 
-      .features-content-inner {
+      .features-content-managed-inner {
         display: flex;
         align-items: center;
         flex-wrap: wrap;
@@ -50,7 +50,7 @@
         }
 
         .features-items {
-          width: 60%;
+          width: 40%;
 
           h3 {
             font-family: $font;

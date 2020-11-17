@@ -1,3 +1,5 @@
+import { gsap } from "gsap";
+
 export function activeBurger() {
   const burger = document.querySelector(".burger-menu");
   const overlay = document.querySelector(".overlay");
@@ -44,7 +46,6 @@ export function activeBurger() {
   });
 
   window.addEventListener("resize", () => {
-    
     if (window.innerWidth > 1200) {
       setTimeout(function () {
         overlay.classList.remove("is-visible");

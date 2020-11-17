@@ -1,4 +1,5 @@
 import { lerp, getMousePos } from "./utils";
+import { gsap } from "gsap";
 
 let mouse = { x: 0, y: 0 };
 

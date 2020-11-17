@@ -1,4 +1,7 @@
-import { debounce } from "./utils";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export function animation() {
   // Body
@@ -25,10 +28,11 @@ export function animation() {
   const titleFeaturesP = document.querySelectorAll(".features-title p");
 
   // init controller
-  var controller = new ScrollMagic.Controller();
+  //var controller = new ScrollMagic.Controller();
 
   //Remove init flash
-  gsap.to(body, 0, {
+  gsap.to(body, {
+    duration: 0,
     css: {
       visibility: "visible",
     },
@@ -114,7 +118,14 @@ export function animation() {
 
   //Blur on scroll Header
 
-  const tlHeaderBlur = gsap.timeline();
+  const tlHeaderBlur = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".banner",
+      start: "top top",
+      end: "bottom center",
+      scrub: 0.2,
+    },
+  });
 
   tlHeaderBlur
     .fromTo(
@@ -136,20 +147,15 @@ export function animation() {
       "Start"
     );
 
-  // build scene
-  new ScrollMagic.Scene({
-    triggerElement: "header",
-    triggerHook: 0,
-    duration: 700,
-  })
-
-    .setTween(tlHeaderBlur)
-    .addTo(controller);
-
   //Features
 
   // Timeline FeaturesTitle
-  const tlFeaturesTitle = gsap.timeline();
+  const tlFeaturesTitle = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".features-title",
+      start: "center center",
+    },
+  });
 
   tlFeaturesTitle.from([titleFeaturesH2, titleFeaturesP], {
     duration: 1,
@@ -161,13 +167,13 @@ export function animation() {
     },
   });
 
-  new ScrollMagic.Scene({
-    triggerElement: "#features",
-    reverse: false,
-  })
+  // new ScrollMagic.Scene({
+  //   triggerElement: "#features",
+  //   reverse: false,
+  // })
 
-    .setTween(tlFeaturesTitle)
-    .addTo(controller);
+  //   .setTween(tlFeaturesTitle)
+  //   .addTo(controller);
 
   //FeaturesContent
 
@@ -176,59 +182,48 @@ export function animation() {
   );
 
   featuresContentInner.forEach(function (items) {
-    const fadeInUp = gsap.timeline();
-    let height = items.clientHeight;
-
-    let heightResize = () => {
-      return items.clientHeight + 300;
-    };
-
-    heightResize(); // set to initial value
-
-    window.addEventListener(
-      "resize",
-      debounce(function () {
-        height = items.clientHeight;
-      }, 300)
-    );
+    const fadeInUp = gsap.timeline({
+      scrollTrigger: {
+        trigger: items,
+        start: "top center",
+        end: "bottom center",
+        scrub: true,
+      },
+    });
 
     fadeInUp
       .from(
         items.querySelector(".features-items p"),
         {
-          y: 100,
+          y: 80,
           ease: "none",
-          //duration: 1,
+          duration: 1,
         },
         "started"
       )
       .from(
         items.querySelector(".btn-row-features"),
         {
-          y: 120,
+          y: 100,
           ease: "none",
           //delay:-.5
-          //duration: 2
+          duration: 1.2,
         },
         "started"
       );
-
-    new ScrollMagic.Scene({
-      triggerElement: items,
-      offset: -100,
-      duration: heightResize,
-      reverse: true,
-    })
-
-      .setTween(fadeInUp)
-      .addTo(controller);
   });
 
   // Users reviews
   const usersReviews = document.querySelector(".users-reviews");
   const swiperSlide = document.querySelectorAll(".swiper-slide");
 
-  const usersReviewsTl = gsap.timeline();
+  const usersReviewsTl = gsap.timeline({
+    scrollTrigger: {
+      trigger: usersReviews,
+      start: "top center",
+      end: "bottom center",
+    },
+  });
 
   usersReviewsTl.from(swiperSlide, {
     duration: 1,
@@ -239,13 +234,14 @@ export function animation() {
       amount: 1,
     },
   });
-  new ScrollMagic.Scene({
-    triggerElement: usersReviews,
-    reverse: false,
-  })
 
-    .setTween(usersReviewsTl)
-    .addTo(controller);
+  // new ScrollMagic.Scene({
+  //   triggerElement: usersReviews,
+  //   reverse: false,
+  // })
+
+  //   .setTween(usersReviewsTl)
+  //   .addTo(controller);
 
   /*
 

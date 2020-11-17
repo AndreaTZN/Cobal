@@ -98,6 +98,23 @@
                 font-family: $font;
                 font-weight: $poppinsLight;
                 font-size: 0.9rem;
+                position: relative;
+
+                &::after {
+                  content: "";
+                  position: absolute;
+                  left: 0;
+                  bottom: -10px;
+                  width: 100%;
+                  height: 3px;
+                  background: white;
+                  transform: scale(0, 1);
+                  transform-origin: 0% 100%;
+                  transition: transform 0.35s;
+                }
+                &:hover::after {
+                  transform: scale(1, 1);
+                }
               }
             }
           }

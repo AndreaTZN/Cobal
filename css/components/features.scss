@@ -7,18 +7,46 @@
   .features-obj {
     position: absolute;
     width: 100%;
-
+    height: 100%;
+    overflow: hidden;
+    @include media("<=tablet") {
+      display: none;
+    }
     img {
       position: absolute;
     }
 
     .img1 {
-      left: 100px;
+      left: 10%;
     }
 
     .img2 {
       right: 100px;
-      top: 500px;
+      top: 15%;
+    }
+    .img3 {
+      left: 100px;
+      top: 35%;
+    }
+    .circle1 {
+      right: -350px;
+      top: 20%;
+    }
+    .circle2 {
+      left: -400px;
+      top: 55%;
+    }
+    .img1-1 {
+      left: 25%;
+      top: 60%;
+    }
+    .img2-1 {
+      right: 0;
+      top: 70%;
+    }
+    .img3-1 {
+      right: 30%;
+      top: 90%;
     }
   }
 
@@ -77,7 +105,7 @@
         align-items: center;
         justify-content: space-around;
         flex-wrap: wrap;
-        margin-bottom: 250px;
+        margin-bottom: 200px;
 
         @include media("<=tablet") {
           &:last-child {

@@ -13,6 +13,12 @@
     position: absolute;
     bottom: 0;
     width: 100%;
+    overflow: hidden;
+    svg {
+      @include media("<=desktop") {
+        width: 200%;
+      }
+    }
   }
 
   .footer-content {

@@ -67,6 +67,7 @@
   .overlay-inner {
     width: 100%;
     min-height: 100vh;
+    height: -webkit-fill-available;
     display: flex;
     justify-content: center;
     align-items: center;

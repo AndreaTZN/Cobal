@@ -19,6 +19,6 @@
   "dependencies": {
     "components": "^0.1.0",
     "gsap": "file:gsap-bonus.tgz",
-    "swiper": "^6.3.5"
+    "swiper": "^6.5.1"
   }
 }
